@@ -13,3 +13,7 @@ export function getInitialData () {
     users, questions
   }))
 }
+
+export function postQuestion (question) {
+  return _saveQuestion(question)
+}

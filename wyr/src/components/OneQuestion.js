@@ -7,7 +7,7 @@ class OneQuestion extends Component {
     let id = this.props.match.params.question_id
     return (
       <div>
-        { this.props.questions[id] === undefined ? null : 
+        { this.props.questions[id] === undefined ? null :
           <DetailedQuestion question={this.props.questions[id]} authedUser={this.props.authedUser} /> }
       </div>
     )

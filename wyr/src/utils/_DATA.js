@@ -1,8 +1,9 @@
+
 let users = {
-  sarahedo: {
+  sarahedo: { // 6
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: '',
+    avatarURL: '/photo3.png',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -11,10 +12,10 @@ let users = {
     },
     questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
   },
-  tylermcginnis: {
+  tylermcginnis: { // 4
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL: '',
+    avatarURL: '/photo2.png',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -24,8 +25,8 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
-    avatarURL: '',
-    answers: {
+    avatarURL: '/photo1.png',
+    answers: { // 5
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo'
