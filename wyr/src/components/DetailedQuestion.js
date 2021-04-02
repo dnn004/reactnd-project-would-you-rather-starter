@@ -36,7 +36,7 @@ class DetailedQuestion extends Component {
         <Card>
           <Card.Header><b>{this.props.author.name} asks:</b></Card.Header>
           <Card.Body className='general-card-body'>
-            <Image src={this.props.author.avatarURL} style={{width: '150px', height: '150px', marginRight: '20px', top: '50%'}}/>
+            <Image className="avatar" src={this.props.author.avatarURL}/>
             {this.state.answered ?
             <div>
               <Card.Title>Results:</Card.Title>

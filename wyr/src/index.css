@@ -42,6 +42,7 @@
 
 .scores {
   text-align: center;
+  margin-left: 1em;
 }
 
 .scores > p {
@@ -63,4 +64,15 @@
 #login {
   width: 30em;
   margin: 1em auto;
+}
+
+.avatar {
+  width: 25%;
+  height: 25%;
+  margin-right: 20px;
+  top: 50%;
+}
+
+#spinner {
+  text-align: center;
 }

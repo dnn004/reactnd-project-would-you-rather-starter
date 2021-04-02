@@ -7,7 +7,7 @@ class DetailedDashboard extends Component {
     let id = this.props.match.match.params.question_id
     return (
       <div>
-        { this.props.questions[id] === undefined ? null :
+        { this.props.questions[id] === undefined ? <h1>404 Question Not Found</h1>  :
           <DetailedQuestion
             question={this.props.questions[id]}
             authedUser={this.props.authedUser}

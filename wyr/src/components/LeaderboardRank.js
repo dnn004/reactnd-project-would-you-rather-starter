@@ -8,9 +8,10 @@ class LeaderboardRank extends Component {
       <div className='general-card'>
         <Card>
           <Card.Body className='general-card-body'>
-            <Image src={this.props.user.avatarURL} style={{width: '150px', height: '150px', marginRight: '20px'}}/>
+            <Image className="avatar" src={this.props.user.avatarURL}/>
             <div className='questionContent'>
-              <Card.Title>{this.props.user.name}</Card.Title>
+              <Card.Title><b>{this.props.user.name}</b></Card.Title>
+              <hr></hr>
               <Card.Text>Answered questions: {Object.keys(this.props.user.answers).length}</Card.Text>
               <Card.Text>Created questions: {this.props.user.questions.length}</Card.Text>
             </div>

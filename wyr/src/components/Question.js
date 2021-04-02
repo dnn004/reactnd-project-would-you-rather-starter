@@ -13,7 +13,7 @@ class Question extends Component {
         <Card>
           <Card.Header><b>{this.props.author.name} asks:</b></Card.Header>
           <Card.Body className='general-card-body'>
-            <Image src={this.props.author.avatarURL} style={{width: '25%', height: '25%', marginRight: '20px'}}/>
+            <Image className="avatar" src={this.props.author.avatarURL}/>
             <div className='questionContent'>
               <Card.Title>Would you rather</Card.Title>
               <Card.Text>...{this.props.question.optionOne.text}...</Card.Text>

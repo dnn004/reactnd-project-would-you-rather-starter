@@ -39,13 +39,13 @@ class Login extends Component {
               <Form.Group controlId="users">
                 <Form.Label>Sign in as:</Form.Label>
                 {this.props.loading ?
-                  <div style={{textAlign:'center'}}>
+                  <div id="spinner">
                     <Spinner animation="border" role="status" variant="primary">
                       <span className="sr-only">Loading...</span>
                     </Spinner>
                   </div>
                   :
-                  <Form.Control as="select">
+                  <Form.Control as="select" size="lg">
                     {this.props.sortedUsersIds.map((id) => (
                       <option key={id} value={id}>
                         {this.props.users[id].name}
