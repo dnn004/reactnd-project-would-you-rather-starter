@@ -11,7 +11,7 @@ class Results extends Component {
     return (
       <div>
         {answer == 'optionOne' ?
-          <Card bg='dark' text='white' className='question' border="primary">
+          <Card bg='dark' text='white' className='general-card' border="primary">
             <OverlayTrigger
               show={true}
               placement='right'
@@ -27,7 +27,7 @@ class Results extends Component {
             </OverlayTrigger>
           </Card>
           :
-          <Card bg='light' text='dark' className='question'>
+          <Card bg='light' text='dark' className='general-card'>
             <Card.Body>
               <Card.Title>Would you rather {optionOneText}?</Card.Title>
               <ProgressBar label={`${Math.round((voteOneCount)/(voteCounts)*1000)/10}%`} now={(voteOneCount)*100/(voteCounts)}/>
@@ -39,7 +39,7 @@ class Results extends Component {
         }
 
         {answer == 'optionTwo' ?
-          <Card bg='dark' text='white' className='question' border="primary">
+          <Card bg='dark' text='white' className='general-card' border="primary">
             <OverlayTrigger
               show={true}
               placement='right'
@@ -55,7 +55,7 @@ class Results extends Component {
             </OverlayTrigger>
           </Card>
           :
-          <Card bg='light' text='dark' className='question'>
+          <Card bg='light' text='dark' className='general-card'>
             <Card.Body>
               <Card.Title>Would you rather {optionTwoText}?</Card.Title>
               <ProgressBar label={`${Math.round((voteTwoCount)/(voteCounts)*1000)/10}%`} now={(voteTwoCount)*100/(voteCounts)}/>

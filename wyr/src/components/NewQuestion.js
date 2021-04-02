@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
-import {connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
+import Card from 'react-bootstrap/Card'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import Tooltip from 'react-bootstrap/Tooltip'
 import { handleAddQuestion } from '../actions/questions'
 
 class NewQuestion extends Component {
   state = {
     optionOneText: '',
-    optionTwoText: ''
+    optionTwoText: '',
+    submitted: false
   }
 
   handleChangeOne = (e) => {
@@ -24,38 +30,45 @@ class NewQuestion extends Component {
 
     this.setState({
       optionOneText: '',
-      optionTwoText: ''
+      optionTwoText: '',
+      submitted: true
     })
   }
 
   render() {
-    const { optionOneText , optionTwoText } = this.state
+    let { optionOneText , optionTwoText } = this.state
+    console.log(this.props)
+    if (this.state.submitted) {
+      return <Redirect to='/' />
+    }
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            <input type="text" value={this.state.optionOneText} onChange={this.handleChangeOne} placeholder="Enter Option One Text Here"/>
-          </label>
-          <br></br>
-          <label>
-            <input type="text" value={this.state.optionTwoText} onChange={this.handleChangeTwo} placeholder="Enter Option Two Text Here"/>
-          </label>
-          <br></br>
-          <button
-            type="submit"
-            disabled={optionOneText === '' || optionTwoText === ''}>
-            Submit
-          </button>
-        </form>
+        <Card className="general-card">
+          <Card.Header id="new-question-header">Create New Question</Card.Header>
+          <OverlayTrigger
+              placement='right'
+              overlay={<Tooltip id="tip">Complete the question!</Tooltip>}
+          >
+          <Card.Body>
+            <Card.Title>Would you rather ...</Card.Title>
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Group controlId="optionOneText">
+                <Form.Control placeholder="Enter Option One Text Here (Required)" value={optionOneText} onChange={this.handleChangeOne}/>
+              </Form.Group>
+              <Card.Text id="or">OR</Card.Text>
+              <Form.Group controlId="optionTwoText">
+                <Form.Control placeholder="Enter Option Two Text Here (Required)" value={optionTwoText} onChange={this.handleChangeTwo}/>
+              </Form.Group>
+              <Button variant="success" type="submit" className="buttons" block disabled={optionOneText === '' || optionTwoText === ''}>
+                Submit
+              </Button>
+            </Form>
+          </Card.Body>
+          </OverlayTrigger>
+        </Card>
       </div>
     )
   }
 }
 
-function mapStateToProps ({ authedUser }) {
-  return {
-    authedUser
-  }
-}
-
-export default connect(mapStateToProps)(NewQuestion)
+export default NewQuestion

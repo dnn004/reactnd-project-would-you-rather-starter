@@ -10,7 +10,7 @@ class Dashboard extends Component {
     console.log(this.props.unanswered)
     return (
       <div>
-        <Card>
+        <Card className="general-card">
           <Card.Body>
             <Tabs defaultActiveKey="unanswered" id="questionsList" fill variant="pills">
               <Tab eventKey="unanswered" title="Unanswered Questions">

@@ -7,7 +7,6 @@ class Leaderboard extends Component {
     console.log(this.props)
     return (
       <div>
-        <h3 className='center'>Leaderboard</h3>
         {this.props.rankedUsers.map((id) => (
           <LeaderboardRank user={this.props.users[id]} key={id}/>
         ))}

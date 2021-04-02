@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-
 import Card from 'react-bootstrap/Card'
 import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button'
@@ -10,10 +9,10 @@ import Button from 'react-bootstrap/Button'
 class Question extends Component {
   render() {
     return (
-      <div className='question'>
+      <div className='general-card'>
         <Card>
           <Card.Header><b>{this.props.author.name} asks:</b></Card.Header>
-          <Card.Body className='questionBody'>
+          <Card.Body className='general-card-body'>
             <Image src={this.props.author.avatarURL} style={{width: '150px', height: '150px', marginRight: '20px'}}/>
             <div className='questionContent'>
               <Card.Title>Would you rather</Card.Title>

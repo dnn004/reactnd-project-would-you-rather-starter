@@ -11,11 +11,6 @@
   margin-top: 1em;
 }
 
-.question {
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
 #brand {
   color: white;
   text-decoration: none;
@@ -26,7 +21,12 @@
   text-decoration: none;
 }
 
-.questionBody {
+.general-card {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.general-card-body {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -46,4 +46,16 @@
 
 .scores > p {
   font-size: 1.5em;
+  font-weight: bold;
+}
+
+#or {
+  text-align: center;
+  font-weight: bold;
+}
+
+#new-question-header{
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
 }

@@ -1,15 +1,20 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
-
 import { unsetAuthedUser } from '../actions/authedUser'
 
 class Logout extends Component {
-  state = {
-    loggedOut: false
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      loggedOut: false
+    }
+    this.handleLogout = this.handleLogout.bind(this)
   }
 
-  handleLogout() {
+  handleLogout(e) {
+    e.preventDefault()
     this.props.dispatch(unsetAuthedUser())
     this.setState({ loggedOut: true })
   }
@@ -20,7 +25,7 @@ class Logout extends Component {
     }
     return (
       <div>
-        <Button variant="primary" size="lg" onClick={(e) => {this.handleLogout(); e.preventDefault();}}>
+        <Button variant="primary" size="lg" onClick={this.handleLogout}>
           Logout
         </Button>
       </div>

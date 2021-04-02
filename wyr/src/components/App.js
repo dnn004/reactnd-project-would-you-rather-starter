@@ -1,19 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { handleInitialData } from '../actions/shared'
+import { Route, BrowserRouter, Redirect } from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-
 import Dashboard from './Dashboard'
 import Leaderboard from './Leaderboard'
 import Login from './Login'
 import NewQuestion from './NewQuestion'
 import DetailedDashboard from './DetailedDashboard'
 import Navigation from './Navigation'
+import { handleInitialData } from '../actions/shared'
 
-
-import { Route, BrowserRouter, Redirect } from 'react-router-dom'
 
 class App extends Component {
   componentDidMount () {
@@ -35,11 +33,11 @@ class App extends Component {
                 <Route exact path="/question/:question_id" component={DetailedDashboard}>
                   {this.props.loggedOut ? <Redirect to='/login' /> : null}
                 </Route>
-                <Route exact path="/leaderboard" component={Leaderboard}>
-                  {this.props.loggedOut ? <Redirect to='/login' /> : null}
+                <Route exact path="/leaderboard">
+                  {this.props.loggedOut ? <Redirect to='/login' /> : <Leaderboard />}
                 </Route>
-                <Route exact path="/add" component={NewQuestion}>
-                  {this.props.loggedOut ? <Redirect to='/login' /> : null}
+                <Route exact path="/add">
+                  {this.props.loggedOut ? <Redirect to='/login' /> : <NewQuestion dispatch={this.props.dispatch}/>}
                 </Route>
                 <Route exact path="/login" component={Login}/>
               </Col>

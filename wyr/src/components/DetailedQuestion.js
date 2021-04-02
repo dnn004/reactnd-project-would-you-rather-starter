@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-
 import Card from 'react-bootstrap/Card'
 import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { handleAnswerQuestion } from '../actions/shared'
-
 import Results from './Results'
 
 class DetailedQuestion extends Component {
@@ -34,10 +32,10 @@ class DetailedQuestion extends Component {
 
   render() {
     return (
-      <div className='question'>
-        <Card style={{ width: '30em', margin: '0 auto'}}>
+      <div className='general-card'>
+        <Card>
           <Card.Header><b>{this.props.author.name} asks:</b></Card.Header>
-          <Card.Body className='questionBody'>
+          <Card.Body className='general-card-body'>
             <Image src={this.props.author.avatarURL} style={{width: '150px', height: '150px', marginRight: '20px', top: '50%'}}/>
             {this.state.answered ?
             <div>
