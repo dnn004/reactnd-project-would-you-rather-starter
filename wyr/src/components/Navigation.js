@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+
 import Logout from './Logout'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
@@ -11,11 +13,25 @@ class Navigation extends Component {
     return (
       <div>
       <Navbar bg="dark" variant="dark" sticky="top">
-        <Navbar.Brand href="/">Would You Rather</Navbar.Brand>
+        <Navbar.Brand>
+          <Link to="/" id="brand">Would You Rather</Link>
+        </Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/add">New Question</Nav.Link>
-          <Nav.Link href="/leaderboard">Leaderboard</Nav.Link>
+          <Nav.Item>
+            <Navbar.Text>
+              <Link to="/">Home</Link>
+            </Navbar.Text>
+          </Nav.Item>
+          <Nav.Item>
+            <Navbar.Text>
+              <Link to="/add">New Question</Link>
+            </Navbar.Text>
+          </Nav.Item>
+          <Nav.Item>
+            <Navbar.Text>
+              <Link to="/leaderboard">Leaderboard</Link>
+            </Navbar.Text>
+          </Nav.Item>
         </Nav>
         {this.props.loggedOut ?
         null :

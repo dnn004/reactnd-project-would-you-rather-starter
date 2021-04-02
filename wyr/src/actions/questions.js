@@ -1,9 +1,8 @@
-import { postQuestion } from '../utils/api'
-
+import { postQuestion, postQuestionAnswer } from '../utils/api'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ADD_QUESTION = 'ADD_QUESTION'
-
+export const ANSWER_QUESTION = 'ANSWER_QUESTION'
 
 export function receiveQuestions (questions) {
   return {
@@ -33,5 +32,21 @@ export function handleAddQuestion(optionOneText, optionTwoText) {
 
     return postQuestion(question)
       .then((question) => dispatch(addQuestion(question)))
+  }
+}
+
+function answerQuestion (id) {
+  return {
+    type: ANSWER_QUESTION,
+    id
+  }
+}
+
+export function handleAnswerQuestion(id, answer) {
+  return (dispatch, getState) => {
+    const { authedUser } = getState()
+    //alert(authedUser)
+    return postQuestionAnswer(authedUser, id, answer)
+      .then(() => dispatch(answerQuestion(id)))
   }
 }

@@ -9,7 +9,7 @@ import Dashboard from './Dashboard'
 import Leaderboard from './Leaderboard'
 import Login from './Login'
 import NewQuestion from './NewQuestion'
-import OneQuestion from './OneQuestion'
+import DetailedDashboard from './DetailedDashboard'
 import Navigation from './Navigation'
 
 
@@ -21,7 +21,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <BrowserRouter>
         <div id="app">
@@ -33,16 +32,10 @@ class App extends Component {
                 <Route exact path="/">
                   {this.props.loading ? <Redirect to='/login' /> : <Dashboard />}
                 </Route>
-                <Route exact path="/question/:question_id" component={OneQuestion}/>
-                <Route exact path="/leaderboard">
-                  <Leaderboard />
-                </Route>
-                <Route exact path="/login">
-                  <Login />
-                </Route>
-                <Route exact path="/add">
-                  <NewQuestion />
-                </Route>
+                <Route exact path="/question/:question_id" component={DetailedDashboard}/>
+                <Route exact path="/leaderboard" component={Leaderboard}/>
+                <Route exact path="/login" component={Login}/>
+                <Route exact path="/add" component={NewQuestion}/>
               </Col>
               <Col></Col>
             </Row>

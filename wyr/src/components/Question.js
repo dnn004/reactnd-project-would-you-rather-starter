@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+
 import Card from 'react-bootstrap/Card'
-
-import CardGroup from 'react-bootstrap/CardGroup'
-import CardDeck from 'react-bootstrap/CardDeck'
-import CardColumns from 'react-bootstrap/CardColumns'
-
+import Image from 'react-bootstrap/Image'
+import Button from 'react-bootstrap/Button'
 
 // Use with Dashboard
 class Question extends Component {
@@ -13,15 +12,29 @@ class Question extends Component {
     // console.log(this.props)
     return (
       <div className='question'>
-        {this.props.question.id}
+        <Card>
+          <Card.Header><b>{this.props.author.name} asks:</b></Card.Header>
+          <Card.Body className='questionBody'>
+            <Image src={this.props.author.avatarURL} style={{width: '150px', height: '150px', marginRight: '20px'}}/>
+            <div>
+              <Card.Title>Would you rather</Card.Title>
+              <Card.Text>...{this.props.question.optionOne.text}...</Card.Text>
+              <Link to={"/question/" + this.props.question.id} className="view-poll">
+                <Button variant="outline-primary" block>
+                  View Poll
+                </Button>
+              </Link>
+            </div>
+          </Card.Body>
+        </Card>
       </div>
     )
   }
 }
 
-function mapStateToProps ({authedUser, questions}, { id }) {
+function mapStateToProps ({authedUser, questions, users}, { id }) {
   const question = questions[id]
-  const author = question.author
+  const author = users[question.author]
 
   return {
     authedUser,

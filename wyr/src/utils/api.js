@@ -17,3 +17,7 @@ export function getInitialData () {
 export function postQuestion (question) {
   return _saveQuestion(question)
 }
+
+export function postQuestionAnswer (authedUser, qid, answer) {
+  return _saveQuestionAnswer({authedUser, qid, answer})
+}
