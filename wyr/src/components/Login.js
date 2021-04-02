@@ -54,11 +54,11 @@ class Login extends Component {
                   </Form.Control>}
 
                 {this.props.loading ?
-                  <Button variant="primary" type="submit" className="buttons" disabled>
+                  <Button variant="primary" type="submit" className="buttons" disabled block>
                     Sign In
                   </Button>
                   :
-                  <Button variant="primary" type="submit" className="buttons">
+                  <Button variant="primary" type="submit" className="buttons" block>
                     Sign In
                   </Button>}
               </Form.Group>
