@@ -1,5 +1,10 @@
 .nav-item {
   margin-right: 1em;
+  display:flex;
+}
+
+.navbar-text {
+  margin:auto;
 }
 
 .buttons {
@@ -33,4 +38,12 @@
 
 .view-poll:hover {
   text-decoration: none;
+}
+
+.scores {
+  text-align: center;
+}
+
+.scores > p {
+  font-size: 1.5em;
 }

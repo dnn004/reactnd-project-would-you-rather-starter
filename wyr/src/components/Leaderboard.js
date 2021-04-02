@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import LeaderboardRank from './LeaderboardRank'
 
 class Leaderboard extends Component {
   render() {
@@ -7,8 +8,9 @@ class Leaderboard extends Component {
     return (
       <div>
         <h3 className='center'>Leaderboard</h3>
-        <ul>
-        </ul>
+        {this.props.rankedUsers.map((id) => (
+          <LeaderboardRank user={this.props.users[id]} key={id}/>
+        ))}
       </div>
     )
   }
@@ -19,7 +21,8 @@ function mapStateToProps ({ users }) {
                         (Object.keys(users[b].answers).length + users[b].questions.length)
                       - (Object.keys(users[a].answers).length + users[a].questions.length))
   return {
-    rankedUsers
+    rankedUsers,
+    users
   }
 }
 

@@ -12,30 +12,24 @@ class Navigation extends Component {
     console.log(this.props)
     return (
       <div>
-      <Navbar bg="dark" variant="dark" sticky="top">
+      <Navbar bg="dark" variant="dark" sticky="top" expand="md">
         <Navbar.Brand>
           <Link to="/" id="brand">Would You Rather</Link>
         </Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Item>
-            <Navbar.Text>
-              <Link to="/">Home</Link>
-            </Navbar.Text>
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Navbar.Text>
-              <Link to="/add">New Question</Link>
-            </Navbar.Text>
+            <Nav.Link as={Link} to="/add">New Question</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Navbar.Text>
-              <Link to="/leaderboard">Leaderboard</Link>
-            </Navbar.Text>
+            <Nav.Link as={Link} to="/leaderboard">Leaderboard</Nav.Link>
           </Nav.Item>
         </Nav>
         {this.props.loggedOut ?
         null :
-        <Nav>
+        <Nav className="justify-content-end">
           <Nav.Item>
             <Navbar.Text>
               Hello, {this.props.user.name}

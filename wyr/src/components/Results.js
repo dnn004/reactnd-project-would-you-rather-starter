@@ -11,7 +11,7 @@ class Results extends Component {
     return (
       <div>
         {answer == 'optionOne' ?
-          <Card bg='dark' text='white' className='question'>
+          <Card bg='dark' text='white' className='question' border="primary">
             <OverlayTrigger
               show={true}
               placement='right'
@@ -39,7 +39,7 @@ class Results extends Component {
         }
 
         {answer == 'optionTwo' ?
-          <Card bg='dark' text='white' className='question'>
+          <Card bg='dark' text='white' className='question' border="primary">
             <OverlayTrigger
               show={true}
               placement='right'
