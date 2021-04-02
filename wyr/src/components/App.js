@@ -28,14 +28,20 @@ class App extends Component {
           <Container fluid>
             <Row>
               <Col></Col>
-              <Col xs={6}>
+              <Col xs={5}>
                 <Route exact path="/">
-                  {this.props.loading ? <Redirect to='/login' /> : <Dashboard />}
+                  {this.props.loggedOut ? <Redirect to='/login' /> : <Dashboard />}
                 </Route>
-                <Route exact path="/question/:question_id" component={DetailedDashboard}/>
-                <Route exact path="/leaderboard" component={Leaderboard}/>
+                <Route exact path="/question/:question_id" component={DetailedDashboard}>
+                  {this.props.loggedOut ? <Redirect to='/login' /> : null}
+                </Route>
+                <Route exact path="/leaderboard" component={Leaderboard}>
+                  {this.props.loggedOut ? <Redirect to='/login' /> : null}
+                </Route>
+                <Route exact path="/add" component={NewQuestion}>
+                  {this.props.loggedOut ? <Redirect to='/login' /> : null}
+                </Route>
                 <Route exact path="/login" component={Login}/>
-                <Route exact path="/add" component={NewQuestion}/>
               </Col>
               <Col></Col>
             </Row>
@@ -48,7 +54,7 @@ class App extends Component {
 
 function mapStateToProps ({ authedUser }) {
   return {
-    loading: authedUser === null
+    loggedOut: authedUser === null
   }
 }
 

@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card'
 import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import { handleAnswerQuestion } from '../actions/questions'
+import { handleAnswerQuestion } from '../actions/shared'
 
 import Results from './Results'
 
@@ -13,8 +13,8 @@ class DetailedQuestion extends Component {
     super(props)
 
     this.state = {
-      answer: '',
-      answered: false
+      answer: props.answered ? props.answer : '',
+      answered: props.answered
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -28,7 +28,7 @@ class DetailedQuestion extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    //this.props.dispatch(handleAnswerQuestion(this.props.question.id, this.state.answer))
+    this.props.dispatch(handleAnswerQuestion(this.props.question.id, this.state.answer))
     this.setState({ answered: true })
   }
 
@@ -38,7 +38,7 @@ class DetailedQuestion extends Component {
         <Card style={{ width: '30em', margin: '0 auto'}}>
           <Card.Header><b>{this.props.author.name} asks:</b></Card.Header>
           <Card.Body className='questionBody'>
-            <Image src={this.props.author.avatarURL} style={{width: '150px', height: '150px', marginRight: '20px'}}/>
+            <Image src={this.props.author.avatarURL} style={{width: '150px', height: '150px', marginRight: '20px', top: '50%'}}/>
             {this.state.answered ?
             <div>
               <Card.Title>Results:</Card.Title>
@@ -71,13 +71,14 @@ class DetailedQuestion extends Component {
                     value='optionTwo'
                     onChange={this.handleChange}
                     label={this.props.question.optionTwo.text}
+                    required
                   />
                   <Button variant="success" type="submit" className="buttons" block>
                     Submit
                   </Button>
                   </Form.Group>
               </Form>
-            </div>}
+              </div>}
           </Card.Body>
         </Card>
       </div>

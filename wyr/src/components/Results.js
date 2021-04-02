@@ -19,9 +19,9 @@ class Results extends Component {
             >
               <Card.Body>
                 <Card.Title>Would you rather {optionOneText}?</Card.Title>
-                <ProgressBar label={`${Math.round((voteOneCount+1)/(voteCounts+1)*1000)/10}%`} now={(voteOneCount+1)*100/(voteCounts+1)}/>
+                <ProgressBar label={`${Math.round((voteOneCount)/(voteCounts)*1000)/10}%`} now={(voteOneCount)*100/(voteCounts)}/>
                   <Card.Text>
-                    {voteOneCount+1} out of {voteCounts+1} votes
+                    {voteOneCount} out of {voteCounts} votes
                   </Card.Text>
               </Card.Body>
             </OverlayTrigger>
@@ -30,9 +30,9 @@ class Results extends Component {
           <Card bg='light' text='dark' className='question'>
             <Card.Body>
               <Card.Title>Would you rather {optionOneText}?</Card.Title>
-              <ProgressBar label={`${Math.round((voteOneCount)/(voteCounts+1)*1000)/10}%`} now={(voteOneCount)*100/(voteCounts+1)}/>
+              <ProgressBar label={`${Math.round((voteOneCount)/(voteCounts)*1000)/10}%`} now={(voteOneCount)*100/(voteCounts)}/>
               <Card.Text>
-                {voteOneCount} out of {voteCounts+1} votes
+                {voteOneCount} out of {voteCounts} votes
               </Card.Text>
             </Card.Body>
           </Card>
@@ -47,9 +47,9 @@ class Results extends Component {
             >
               <Card.Body>
                 <Card.Title>Would you rather {optionTwoText}?</Card.Title>
-                  <ProgressBar label={`${Math.round((voteTwoCount+1)/(voteCounts+1)*1000)/10}%`} now={(voteTwoCount+1)*100/(voteCounts+1)}/>
+                  <ProgressBar label={`${Math.round((voteTwoCount)/(voteCounts)*1000)/10}%`} now={(voteTwoCount)*100/(voteCounts)}/>
                   <Card.Text>
-                    {voteTwoCount+1} out of {voteCounts+1} votes
+                    {voteTwoCount} out of {voteCounts} votes
                   </Card.Text>
               </Card.Body>
             </OverlayTrigger>
@@ -58,9 +58,9 @@ class Results extends Component {
           <Card bg='light' text='dark' className='question'>
             <Card.Body>
               <Card.Title>Would you rather {optionTwoText}?</Card.Title>
-              <ProgressBar label={`${Math.round((voteTwoCount)/(voteCounts+1)*1000)/10}%`} now={(voteTwoCount)*100/(voteCounts+1)}/>
+              <ProgressBar label={`${Math.round((voteTwoCount)/(voteCounts)*1000)/10}%`} now={(voteTwoCount)*100/(voteCounts)}/>
               <Card.Text>
-                {voteTwoCount} out of {voteCounts+1} votes
+                {voteTwoCount} out of {voteCounts} votes
               </Card.Text>
             </Card.Body>
           </Card>

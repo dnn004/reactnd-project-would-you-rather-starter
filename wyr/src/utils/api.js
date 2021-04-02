@@ -19,5 +19,5 @@ export function postQuestion (question) {
 }
 
 export function postQuestionAnswer (authedUser, qid, answer) {
-  return _saveQuestionAnswer({authedUser, qid, answer})
+  return _saveQuestionAnswer({authedUser, qid, answer}).then(([users, questions]) => ({ users, questions }))
 }

@@ -35,18 +35,9 @@ export function handleAddQuestion(optionOneText, optionTwoText) {
   }
 }
 
-function answerQuestion (id) {
+export function answerQuestion (questions) {
   return {
     type: ANSWER_QUESTION,
-    id
-  }
-}
-
-export function handleAnswerQuestion(id, answer) {
-  return (dispatch, getState) => {
-    const { authedUser } = getState()
-    //alert(authedUser)
-    return postQuestionAnswer(authedUser, id, answer)
-      .then(() => dispatch(answerQuestion(id)))
+    questions
   }
 }

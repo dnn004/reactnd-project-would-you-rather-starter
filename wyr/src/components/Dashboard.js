@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import Question from './Question'
@@ -8,19 +7,19 @@ import Card from 'react-bootstrap/Card'
 
 class Dashboard extends Component {
   render() {
-    console.log(this.props.answered)
+    console.log(this.props.unanswered)
     return (
       <div>
         <Card>
           <Card.Body>
             <Tabs defaultActiveKey="unanswered" id="questionsList" fill variant="pills">
               <Tab eventKey="unanswered" title="Unanswered Questions">
-                {this.props.answered.map((id) => (
+                {this.props.unanswered.map((id) => (
                   <Question id={id} key={id}/>
                 ))}
               </Tab>
               <Tab eventKey="answered" title="Answered Questions">
-                {this.props.unanswered.map((id) => (
+                {this.props.answered.map((id) => (
                   <Question id={id} key={id}/>
                 ))}
               </Tab>

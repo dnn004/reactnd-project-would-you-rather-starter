@@ -6,6 +6,7 @@ class DetailedDashboard extends Component {
   render() {
     let id = this.props.match.params.question_id
     return (
+      // REDIRECT IF NO AUTHED
       <div>
         { this.props.questions[id] === undefined ? null :
           <DetailedQuestion
@@ -13,6 +14,8 @@ class DetailedDashboard extends Component {
             authedUser={this.props.authedUser}
             author={this.props.users[this.props.questions[id].author]}
             dispatch={this.props.dispatch}
+            answered={id in this.props.users[this.props.authedUser].answers}
+            answer={this.props.users[this.props.authedUser].answers[id]}
           /> }
       </div>
     )
