@@ -15,7 +15,6 @@ export function handleInitialData() {
 export function handleAnswerQuestion(id, answer) {
   return (dispatch, getState) => {
     const { authedUser } = getState()
-    //alert(authedUser)
     return postQuestionAnswer(authedUser, id, answer)
       .then(({ users, questions }) => {
         dispatch(answerQuestionUser(users))

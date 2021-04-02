@@ -22,7 +22,6 @@ export function handleAddQuestion(optionOneText, optionTwoText) {
   return (dispatch, getState) => {
     const { authedUser } = getState()
     const author = authedUser
-    console.log(authedUser)
 
     let question = {
       author,

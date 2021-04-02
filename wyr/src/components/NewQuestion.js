@@ -9,22 +9,18 @@ class NewQuestion extends Component {
   }
 
   handleChangeOne = (e) => {
+    e.persist()
     this.setState({ optionOneText: e.target.value })
   }
 
   handleChangeTwo = (e) => {
+    e.persist()
     this.setState({ optionTwoText: e.target.value })
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
-
-    const { optionOneText } = this.state.optionOneText
-    const { optionTwoText } = this.state.optionTwoText
-    const { dispatch } = this.props
-
-    dispatch(handleAddQuestion(optionOneText, optionTwoText))
-
+    this.props.dispatch(handleAddQuestion(this.state.optionOneText, this.state.optionTwoText))
 
     this.setState({
       optionOneText: '',
@@ -33,7 +29,6 @@ class NewQuestion extends Component {
   }
 
   render() {
-    console.log(this.props)
     const { optionOneText , optionTwoText } = this.state
     return (
       <div>
@@ -46,7 +41,6 @@ class NewQuestion extends Component {
             <input type="text" value={this.state.optionTwoText} onChange={this.handleChangeTwo} placeholder="Enter Option Two Text Here"/>
           </label>
           <br></br>
-          {/* <input type="submit" value="Submit" /> */}
           <button
             type="submit"
             disabled={optionOneText === '' || optionTwoText === ''}>
