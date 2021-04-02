@@ -30,8 +30,8 @@ class App extends Component {
                 <Route exact path="/">
                   {this.props.loggedOut ? <Redirect to='/login' /> : <Dashboard />}
                 </Route>
-                <Route exact path="/question/:question_id" component={DetailedDashboard}>
-                  {this.props.loggedOut ? <Redirect to='/login' /> : null}
+                <Route exact path="/question/:question_id"
+                  render={(match) => (this.props.loggedOut ? <Redirect to='/login' /> : <DetailedDashboard match={match}/>)} >
                 </Route>
                 <Route exact path="/leaderboard">
                   {this.props.loggedOut ? <Redirect to='/login' /> : <Leaderboard />}

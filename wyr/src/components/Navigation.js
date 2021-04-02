@@ -8,7 +8,6 @@ import Image from 'react-bootstrap/Image'
 
 class Navigation extends Component {
   render() {
-    console.log(this.props)
     return (
       <div>
       <Navbar bg="dark" variant="dark" sticky="top" expand="md">

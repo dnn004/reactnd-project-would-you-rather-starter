@@ -7,7 +7,6 @@ import Card from 'react-bootstrap/Card'
 
 class Dashboard extends Component {
   render() {
-    console.log(this.props.unanswered)
     return (
       <div>
         <Card className="general-card">

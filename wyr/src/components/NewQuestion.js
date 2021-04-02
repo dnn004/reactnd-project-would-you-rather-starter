@@ -37,7 +37,6 @@ class NewQuestion extends Component {
 
   render() {
     let { optionOneText , optionTwoText } = this.state
-    console.log(this.props)
     if (this.state.submitted) {
       return <Redirect to='/' />
     }

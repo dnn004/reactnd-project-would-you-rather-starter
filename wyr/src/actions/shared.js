@@ -2,6 +2,15 @@ import { getInitialData, postQuestionAnswer } from '../utils/api'
 import { receiveQuestions, answerQuestion } from '../actions/questions'
 import { receiveUsers, answerQuestionUser } from '../actions/users'
 
+// export const FETCH_COMPLETE = 'FETCH_COMPLETE'
+
+// export function fetchComplete (fetched) {
+//   return {
+//     type: FETCH_COMPLETE,
+//     fetched,
+//   }
+// }
+
 export function handleInitialData() {
   return (dispatch) => {
     return getInitialData()

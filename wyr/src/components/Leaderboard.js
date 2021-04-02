@@ -4,7 +4,6 @@ import LeaderboardRank from './LeaderboardRank'
 
 class Leaderboard extends Component {
   render() {
-    console.log(this.props)
     return (
       <div>
         {this.props.rankedUsers.map((id) => (

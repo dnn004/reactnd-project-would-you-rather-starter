@@ -4,7 +4,7 @@ import DetailedQuestion from './DetailedQuestion'
 
 class DetailedDashboard extends Component {
   render() {
-    let id = this.props.match.params.question_id
+    let id = this.props.match.match.params.question_id
     return (
       // REDIRECT IF NO AUTHED
       <div>

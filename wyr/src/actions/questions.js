@@ -1,4 +1,4 @@
-import { postQuestion, postQuestionAnswer } from '../utils/api'
+import { postQuestion } from '../utils/api'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ADD_QUESTION = 'ADD_QUESTION'
