@@ -12,7 +12,6 @@ import DetailedDashboard from './DetailedDashboard'
 import Navigation from './Navigation'
 import { handleInitialData } from '../actions/shared'
 
-
 class App extends Component {
   componentDidMount () {
     this.props.dispatch(handleInitialData())

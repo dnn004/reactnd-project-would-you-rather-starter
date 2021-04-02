@@ -59,3 +59,8 @@
   font-size: 1.5em;
   font-weight: bold;
 }
+
+#login {
+  width: 30em;
+  margin: 1em auto;
+}

@@ -6,7 +6,6 @@ class DetailedDashboard extends Component {
   render() {
     let id = this.props.match.match.params.question_id
     return (
-      // REDIRECT IF NO AUTHED
       <div>
         { this.props.questions[id] === undefined ? null :
           <DetailedQuestion

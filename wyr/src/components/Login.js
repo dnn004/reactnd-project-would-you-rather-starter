@@ -5,13 +5,14 @@ import { setAuthedUser } from '../actions/authedUser'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Card from 'react-bootstrap/Card'
+import Spinner from 'react-bootstrap/Spinner'
 
 class Login extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      loggedIn: false
+      loggedIn: false,
     }
 
     this.handleLogin = this.handleLogin.bind(this)
@@ -29,7 +30,7 @@ class Login extends Component {
     }
     return (
       <div>
-        <Card style={{ width: '30em', margin: '0 auto'}}>
+        <Card id="login">
           <Card.Img variant="top" src="/react-redux.png" />
           <Card.Body>
             <Card.Title>Welcome to the Would You Rather App!</Card.Title>
@@ -37,16 +38,29 @@ class Login extends Component {
             <Form onSubmit={this.handleLogin}>
               <Form.Group controlId="users">
                 <Form.Label>Sign in as:</Form.Label>
-                <Form.Control as="select">
-                  {this.props.sortedUsersIds.map((id) => (
-                    <option key={id} value={id}>
-                      {this.props.users[id].name}
-                    </option>
-                  ))}
-                </Form.Control>
-                <Button variant="primary" type="submit" className="buttons">
-                  Sign In
-                </Button>
+                {this.props.loading ?
+                  <div style={{textAlign:'center'}}>
+                    <Spinner animation="border" role="status" variant="primary">
+                      <span className="sr-only">Loading...</span>
+                    </Spinner>
+                  </div>
+                  :
+                  <Form.Control as="select">
+                    {this.props.sortedUsersIds.map((id) => (
+                      <option key={id} value={id}>
+                        {this.props.users[id].name}
+                      </option>
+                    ))}
+                  </Form.Control>}
+
+                {this.props.loading ?
+                  <Button variant="primary" type="submit" className="buttons" disabled>
+                    Sign In
+                  </Button>
+                  :
+                  <Button variant="primary" type="submit" className="buttons">
+                    Sign In
+                  </Button>}
               </Form.Group>
             </Form>
           </Card.Body>
@@ -58,10 +72,12 @@ class Login extends Component {
 
 function mapStateToProps ({ users, authedUser }) {
   const sortedUsersIds = Object.keys(users).sort((a,b) => (users[a].name > users[b].name) ? 1 : -1)
+  let loading = Object.keys(users).length === 0
   return {
     sortedUsersIds,
     users,
-    authedUser
+    authedUser,
+    loading
   }
 }
 
