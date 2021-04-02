@@ -5,7 +5,6 @@ import Card from 'react-bootstrap/Card'
 import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button'
 
-// Use with Dashboard
 class Question extends Component {
   render() {
     return (
