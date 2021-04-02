@@ -74,7 +74,7 @@ Your code will talk to the database via 4 methods:
 
 3) `_saveQuestion(question)` Method
 
-*Description*: Save the polling question in the database.  
+*Description*: Save the polling question in the database.   
 *Parameters*:  Object that includes the following properties: `author`, `optionOneText`, and `optionTwoText`. More details about these properties:
 
 | Attribute | Type | Description |
@@ -95,7 +95,10 @@ Your code will talk to the database via 4 methods:
 
 4) `_saveQuestionAnswer(object)` Method
 
-*Description*: Save the answer to a particular polling question in the database.
+*Description*: Save the answer to a particular polling question in the database  
+*Return Value*: List of: object where the key is the user’s id and the value is
+the user object, object where the key is the question’s id and the value is the
+question object.  
 *Parameters*: Object that contains the following properties: `authedUser`, `qid`, and `answer`. More details about these properties:
 
 | Attribute | Type | Description |
