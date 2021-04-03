@@ -28,15 +28,15 @@ class Navigation extends Component {
         {this.props.loggedOut ?
         null :
         <Nav className="justify-content-end">
-          <Nav.Item>
+          <Nav.Item className="greetings">
             <Navbar.Text>
               Hello, {this.props.user.name}
             </Navbar.Text>
           </Nav.Item>
-          <Nav.Item>
+          <Nav.Item className="greetings">
             <Image src={this.props.user.avatarURL} roundedCircle width="50em" height="50em"/>
           </Nav.Item>
-          <Nav.Item>
+          <Nav.Item className="greetings">
             <Logout dispatch={this.props.dispatch}/>
           </Nav.Item>
         </Nav>
